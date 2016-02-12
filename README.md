@@ -6,6 +6,11 @@ wget https://raw.githubusercontent.com/shenjinti/pyunpian/master/pyunpian.py
 
 python pyunpian.py -h
 ```
+Or via `pip`
+```
+pip install https://github.com/shenjinti/pyunpian/archive/master.zip
+python -m pyunpian -h
+```
 
 * Basic Usage:    
 
