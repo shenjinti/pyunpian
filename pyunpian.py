@@ -97,7 +97,7 @@ if __name__ == '__main__':
         sys.exit(0)
     
     if args.mobile is None:
-        print("error: argument -k/--key: expected one argument")
+        print("error: argument -m/--mobile: expected one argument")
         parser.print_help()
         sys.exit(0)
     if args.text is not None:
