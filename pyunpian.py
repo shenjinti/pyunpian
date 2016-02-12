@@ -20,7 +20,7 @@ class Result:
 
         self.code = r["code"]
         self.msg = r.get("msg", "")
-        self.detail = r.get("msg", "")
+        self.detail = r.get("detail", "")
         self.obj = r
 
     def is_ok(self):
