@@ -7,6 +7,7 @@ except ImportError:
     from urllib import urlencode
 
 import json
+import os
 
 
 class SMSException(Exception):
