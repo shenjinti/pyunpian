@@ -49,16 +49,19 @@ class SMSConnection:
         args = {"apikey": self.apikey}
         args.update(params)
 
-        conn = HTTPSConnection(host, timeout=self.TIMEOUT)
         proxy = os.getenv('HTTP_PROXY')
         if proxy is not None and proxy.startswith('http://'):
             host_port = proxy.split('://')[1]
-            host, port = host_port.split(':')
-            if port is not None:
-                port = int(port)
+            prx_host, prx_port = host_port.split(':')
+            if prx_port is not None:
+                prx_port = int(prx_port)
             else:
-                port = 80
-            conn.set_tunnel(host, port)
+                prx_port = 80
+            conn = HTTPSConnection(prx_host, prx_port, timeout=self.TIMEOUT)
+            conn.set_tunnel(host)
+        else:
+            conn = HTTPSConnection(host, timeout=self.TIMEOUT)
+
         conn.request("POST", "/" + self.API_VERSION + uri,
                      urlencode(args))
 
